@@ -23,6 +23,11 @@ function es6ToEs5Code(sourceCode) {
 }
 
 function consumeMessage(messageData) {
+  if (messageData.source === messageData.target) {
+    // ignore messages sent to itself
+    return;
+  }
+
   var sender = messageData.source;
   var specCode = messageData.data;
 
